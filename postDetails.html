@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Details</title>
+
+  <link rel="shortcut icon" href="img/network.png" type="image/x-icon">
+  <!-- import fontAwesome -->
+  <link rel="stylesheet" href="CSS/all.min.css" />
+  <!-- import bootstrap css -->
+  <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+  <!-- import MyCSS -->
+  <link rel="stylesheet" href="CSS/poatDetails.css" />
+</head>
+
+<body>
+
+
+  <!-- nav bar start-->
+  <nav class=" navbar shadow rounded navbar-expand-lg bg-body-tertiary py-3 ">
+    <div class="container">
+      <a class="navbar-brand" href="home.html">Social</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+
+        <div>
+          <button id="navLogin" class="btn btn-outline-success " data-bs-toggle="modal"
+            data-bs-target="#loginModal">Login</button>
+          <button id="navRegister" class="btn btn-outline-success mx-3" data-bs-toggle="modal"
+            data-bs-target="#registerModal">Register</button>
+        </div>
+
+
+
+        <div class="d-flex">
+          <div id="navUserDetails" class="me-4  align-items-center">
+            <b id="navUserName" class="fs-5 me-2">Mahmoud</b>
+            <img id="navUserImg" src="img/posts/pexels-mikebirdy-1.jpg" alt="userImage"
+              class="rounded-circle border border-2 " width="48px" height="48px">
+          </div>
+          <button id="navLogout" class=" ms-2 btn btn-outline-danger  rounded-5 " data-bs-toggle="modal">Logout</button>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+  <!-- nav bar end -->
+  <!-- ======Modals========= -->
+
+  <!-- loginModal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">UserName:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-password" class="col-form-label" autocomplete="current-password">Password:</label>
+              <input type="password" name="password" class="form-control" id="recipient-password">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="loginBtn">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- loginModal end-->
+
+
+  <!-- registerModal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+
+
+            <div class="mb-3">
+              <label for="registerName" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="registerName">
+            </div>
+
+            <div class="mb-3">
+              <label for="registerUserName" class="col-form-label">UserName:</label>
+              <input type="text" class="form-control" id="registerUserName">
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="col-form-label" autocomplete="current-password">Password:</label>
+              <input type="password" name="password" class="form-control" id="registerPassword">
+            </div>
+            <div class="mb-3">
+              <label for="registerImage" class="form-label">Image</label>
+              <input class="form-control" type="file" id="registerImage">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="RegisterBtn">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- registerModal end-->
+
+  <!-- top btn -->
+  <button type="button" id="topBtn" class="btn btn-outline-dark rounded-circle "><i class="fa fa-arrow-up "
+      aria-hidden="true"></i></button>
+  <!-- top btn -->
+
+  <!-- loading -->
+  <div id="loading" class="loading d-none align-items-center justify-content-center">
+    <span class="loader"></span>
+  </div>
+  <!--loading  -->
+
+  <!-- ======Modals End======= -->
+
+
+  <main>
+
+    <section >
+      <div class="container">
+        <div class="row g-4  mt-3 justify-content-center">
+
+          <div id="userPostDetails" class="col-md-9 py-4">
+            <!-- User Post -->
+            <div class="userPost mb-3 ">
+              <h1>
+                <span>Mahmoud's</span>
+                Post
+              </h1>
+            </div>
+
+            <div class="card shadow">
+
+              <div class="card-header">
+                <img src="img/user/icons8-user-40.png" alt="icons8" class="rounded-circle border border-2 " width="48px"
+                  height="48px">
+                <span class="fw-bold mx-2">Mahmoud</span>
+              </div>
+
+              <div class="card-body">
+                <img src="img/posts/pexels-mikebirdy-1.jpg" class="object-fit-contain w-100" alt="mercedes">
+                <p class="card-text mt-1 text-body-secondary">2 min ago</p>
+                <h5>Hello world</h5>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus ratione, distinctio ullam
+                  atque corporis aliquam eum tempore sequi molestias vel placeat repellat.</p>
+              </div>
+
+              <div class=" card-footer text-body-secondary bg-transparent">
+                <i class="fa-solid fa-comments"></i>
+                <span>
+                  (3) comments
+                </span>
+              </div>
+
+              <!-- comments -->
+              <div id="comments" class="p-2">
+                <!-- first comments -->
+
+                <div class=" bg-body-secondary">
+
+                  <div class="commentHead d-flex align-items-center">
+                    <img src="img/user/icons8-user-40.png" alt="" class="rounded-circle border border-1 " width="38px"
+                      height="38px">
+                    <b>Mahmoud</b>
+                  </div>
+
+                  <div class="commentBody">
+
+                    <p class="text-muted ps-2 my-1">Lorem ipsum dolor, sit amet</p>
+                    <hr class="my-0">
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- add comment btn -->
+              <div id="commentGroup" class="input-group px-1 mb-1">
+                <input id="commentInput" type="text" class="commentInput form-control " placeholder="Add Your comment...">
+                <button class="btn btn-outline-info addComment">Send</button>
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+
+
+
+
+
+  <!-- import my shared js logic -->
+  <script src="js/mainSharedLogic.js"></script>
+  <!-- import bootstrap js -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- link sweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- import MyJs -->
+  <script src="js/postdetails.js"></script>
+</body>
+
+</html>
